@@ -30,9 +30,11 @@ Refer to the `example.txt` file for input examples and their expected sanitized 
 <br><\br>
 ![Screenshot of Input Sanitizer Web Tool](https://imgur.com/oggV4Bf.png)
 <br><\br>
+
 **-- Dark MODE**
 <br><\br>
 ![Dark MODE](https://imgur.com/X31yEEC.png)
+<br><\br>
 
 
 ## Future Enhancements
