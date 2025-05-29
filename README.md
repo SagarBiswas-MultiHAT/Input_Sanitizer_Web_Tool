@@ -26,7 +26,7 @@ The Input Sanitizer Web Tool is designed to help users sanitize potentially mali
 Refer to the `example.txt` file for input examples and their expected sanitized outputs.
 
 ## Screenshots
-![Screenshot of Input Sanitizer Web Tool](https://imgur.com/a/3bGwbfI.png)
+![Screenshot of Input Sanitizer Web Tool](https://imgur.com/oggV4Bf.png)
 ![Dark MODE](https://imgur.com/X31yEEC.png)
 
 
