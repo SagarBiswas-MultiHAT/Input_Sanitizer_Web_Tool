@@ -42,5 +42,3 @@ Refer to the `example.txt` file for input examples and their expected sanitized 
 - Include a dark mode for better accessibility.
 - Add unit tests for various input scenarios.
 
-## License
-This project is open-source and available under the MIT License.
