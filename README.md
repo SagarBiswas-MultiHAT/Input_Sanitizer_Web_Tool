@@ -27,14 +27,14 @@ Refer to the `example.txt` file for input examples and their expected sanitized 
 
 ## Screenshots
 **-- Screenshot of Input Sanitizer Web Tool**
-<br><\br>
+<br></br>
 ![Screenshot of Input Sanitizer Web Tool](https://imgur.com/oggV4Bf.png)
-<br><\br>
+<br></br>
 
 **-- Dark MODE**
-<br><\br>
+<br></br>
 ![Dark MODE](https://imgur.com/X31yEEC.png)
-<br><\br>
+<br></br>
 
 
 ## Future Enhancements
