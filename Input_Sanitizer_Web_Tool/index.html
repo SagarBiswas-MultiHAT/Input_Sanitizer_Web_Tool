@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Input Sanitizer Web Tool</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <header>
+        <div>
+            <img src="logo.jpg" alt="Input Sanitizer Logo" class="logo">
+            <h1>Input Sanitizer Web Tool</h1>
+            <button id="darkModeToggle">Toggle Dark Mode</button>
+        </div>
+    </header>
+    <div class="container">
+        <p>Paste your potentially malicious HTML/JS input below and see the sanitized version.</p>
+
+        <div class="input-section">
+            <textarea id="input" placeholder="Paste your input here..."></textarea>
+        </div>
+
+        <div class="buttons">
+            <button id="sanitizeButton">Sanitize</button>
+            <button id="clearButton">Clear</button>
+            <button id="downloadButton">Download Output</button>
+        </div>
+
+        <div class="char-count">
+            <p>Input Characters: <span id="inputCharCount">0</span></p>
+            <p>Output Characters: <span id="outputCharCount">0</span></p>
+        </div>
+
+        <div class="output-section">
+            <h2>Sanitized Output</h2>
+            <textarea id="output" readonly></textarea>
+        </div>
+
+        <div class="suggestions">
+            <h2>Suggestions</h2>
+            <br>
+            <ul id="suggestionsList"></ul>
+        </div>
+    </div>
+    <script src="script.js"></script>
+    <script>
+        document.getElementById('darkModeToggle').addEventListener('click', () => {
+            document.body.classList.toggle('dark-mode'); // dark-mode is a class that you can define in your CSS to style the page for dark mode
+        });
+    </script>
+</body>
+
+</html>

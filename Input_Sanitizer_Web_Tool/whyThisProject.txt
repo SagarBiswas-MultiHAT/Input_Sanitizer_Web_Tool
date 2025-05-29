@@ -1,0 +1,34 @@
+# Why This Project?
+
+## Purpose
+The Input Sanitizer Web Tool was created to address the growing need for secure handling of user inputs in web applications. With the increasing prevalence of web-based attacks such as Cross-Site Scripting (XSS) and injection attacks, this tool serves as an educational and practical resource for developers to understand and mitigate these vulnerabilities.
+
+## Key Objectives
+1. **Educate Developers**: Provide a hands-on tool to demonstrate common input vulnerabilities and their mitigations.
+2. **Promote Best Practices**: Encourage the adoption of secure coding practices by showcasing real-world examples and their sanitized outputs.
+3. **Enhance Security Awareness**: Highlight the importance of input sanitization in preventing web application attacks.
+
+## Features
+- **Real-Time Sanitization**: Instantly removes malicious scripts and attributes from user inputs.
+- **Suggestions for Improvement**: Offers actionable recommendations to improve input safety.
+- **Professional Examples**: Includes real-life scenarios to demonstrate the impact of insecure inputs.
+- **User-Friendly Interface**: Designed for ease of use with a clean and responsive UI.
+
+## Target Audience
+This project is aimed at:
+- **Web Developers**: To help them understand and implement input sanitization techniques.
+- **Cybersecurity Enthusiasts**: To explore common web vulnerabilities and their mitigations.
+- **Educators and Students**: As a learning tool for secure web development practices.
+
+## Real-World Relevance
+Insecure input handling is one of the most common vulnerabilities exploited by attackers. This project demonstrates how simple yet effective measures can significantly enhance the security of web applications. By using this tool, developers can:
+- Prevent XSS attacks by removing `<script>` tags and dangerous attributes.
+- Avoid injection attacks by sanitizing user inputs.
+- Build a strong foundation for secure web development.
+
+## Future Enhancements
+- Integration with advanced sanitization libraries like DOMPurify.
+- Support for additional input types and formats.
+- Enhanced reporting and analytics for sanitized inputs.
+
+This project is not just a tool but a step towards building a more secure web ecosystem. By understanding the "why" behind input sanitization, developers can create applications that are both functional and secure.
